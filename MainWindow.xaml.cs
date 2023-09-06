@@ -21,36 +21,38 @@ namespace CSharpWpf_Collection
     /// </summary>
     public partial class MainWindow : Window
     {
-        ArrayList arrayList;
+        //ArrayList arrayList;
+        Hashtable hashtable;
         public MainWindow()
         {
             InitializeComponent();
-            arrayList = new ArrayList();
+            hashtable = new Hashtable();
         }
 
         private void addBtn_Click(object sender, RoutedEventArgs e)
         {
-            //Add data
-            arrayList.Add(textName.Text);
+            //add
+            hashtable.Add(textKey.Text, textName.Text);
         }
 
         private void removeBtn_Click(object sender, RoutedEventArgs e)
         {
-            //remove ()Object
-            arrayList.Remove(textName.Text);
+            //remove
+            hashtable.Remove(textKey.Text);
         }
 
         private void showBtn_Click(object sender, RoutedEventArgs e)
         {
-
-            foreach (var item in arrayList)
+            //hashtable key name
+            ICollection collection = hashtable.Keys;
+            foreach (var key in collection)
             {
                 //Show All
-                MessageBox.Show(item.ToString());
+                MessageBox.Show(hashtable[key].ToString());
             }
 
             //Count data
-            MessageBox.Show("Count: "+ arrayList.Count.ToString());
+            MessageBox.Show("Count: "+ hashtable.Count.ToString());
 
         }
     }

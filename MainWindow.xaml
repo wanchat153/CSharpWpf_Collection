@@ -11,6 +11,7 @@
         <Button x:Name="removeBtn" Content="Remove" HorizontalAlignment="Center" Height="41" Margin="0,153,0,0" VerticalAlignment="Top" Width="136" Click="removeBtn_Click"/>
         <Button x:Name="showBtn" Content="Show All" HorizontalAlignment="Left" Height="41" Margin="509,153,0,0" VerticalAlignment="Top" Width="135" Click="showBtn_Click"/>
         <TextBox x:Name="textName" HorizontalAlignment="Center" Height="33" Margin="0,99,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="490" FontSize="20" Background="#FFE5E5E5" BorderThickness="2,2,2,2" BorderBrush="#FF7A7A7A"/>
+        <TextBox x:Name="textKey" HorizontalAlignment="Center" Height="33" Margin="0,48,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="490" FontSize="20" Background="#FFE5E5E5" BorderThickness="2,2,2,2" BorderBrush="#FF7A7A7A"/>
 
     </Grid>
 </Window>
