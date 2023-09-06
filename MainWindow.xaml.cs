@@ -22,37 +22,40 @@ namespace CSharpWpf_Collection
     public partial class MainWindow : Window
     {
         //ArrayList arrayList;
-        Hashtable hashtable;
+        //Hashtable hashtable;
+        SortedList sortedList;
         public MainWindow()
         {
             InitializeComponent();
-            hashtable = new Hashtable();
+            sortedList = new SortedList();
+
         }
 
         private void addBtn_Click(object sender, RoutedEventArgs e)
         {
             //add
-            hashtable.Add(textKey.Text, textName.Text);
+            sortedList.Add(textKey.Text, textName.Text);
+            textKey.Clear();
+            textName.Clear();
         }
 
         private void removeBtn_Click(object sender, RoutedEventArgs e)
         {
             //remove
-            hashtable.Remove(textKey.Text);
+            sortedList.Remove(textKey.Text);
+            textKey.Clear();
+            textName.Clear();
         }
 
         private void showBtn_Click(object sender, RoutedEventArgs e)
         {
-            //hashtable key name
-            ICollection collection = hashtable.Keys;
-            foreach (var key in collection)
-            {
-                //Show All
-                MessageBox.Show(hashtable[key].ToString());
-            }
+            listBox.Items.Refresh();
+            //Show list
+            listBox.ItemsSource = sortedList.Values;
+        }
 
-            //Count data
-            MessageBox.Show("Count: "+ hashtable.Count.ToString());
+        private void listBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
 
         }
     }
