@@ -24,32 +24,33 @@ namespace CSharpWpf_Collection
         //ArrayList arrayList;
         //Hashtable hashtable;
         //SortedList sortedList;
-        Stack stack; //Last In First Out
+        //Stack stack; //Last In First Out
+        Queue queue; //First In First Out
         public MainWindow()
         {
             InitializeComponent();
-            stack = new Stack();
+            queue = new Queue();
 
         }
 
         private void addBtn_Click(object sender, RoutedEventArgs e)
         {
             //add
-            stack.Push(textName.Text);
+            queue.Enqueue(textName.Text);
             textName.Clear();
 
             listBox.Items.Refresh();
-            listBox.ItemsSource = stack;
+            listBox.ItemsSource = queue;
         }
 
         private void removeBtn_Click(object sender, RoutedEventArgs e)
         {
             //remove
-            stack.Pop();
+            queue.Dequeue();
             textName.Clear();
 
             listBox.Items.Refresh();
-            listBox.ItemsSource = stack;
+            listBox.ItemsSource = queue;
         }
 
         private void listBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
