@@ -23,35 +23,33 @@ namespace CSharpWpf_Collection
     {
         //ArrayList arrayList;
         //Hashtable hashtable;
-        SortedList sortedList;
+        //SortedList sortedList;
+        Stack stack; //Last In First Out
         public MainWindow()
         {
             InitializeComponent();
-            sortedList = new SortedList();
+            stack = new Stack();
 
         }
 
         private void addBtn_Click(object sender, RoutedEventArgs e)
         {
             //add
-            sortedList.Add(textKey.Text, textName.Text);
-            textKey.Clear();
+            stack.Push(textName.Text);
             textName.Clear();
+
+            listBox.Items.Refresh();
+            listBox.ItemsSource = stack;
         }
 
         private void removeBtn_Click(object sender, RoutedEventArgs e)
         {
             //remove
-            sortedList.Remove(textKey.Text);
-            textKey.Clear();
+            stack.Pop();
             textName.Clear();
-        }
 
-        private void showBtn_Click(object sender, RoutedEventArgs e)
-        {
             listBox.Items.Refresh();
-            //Show list
-            listBox.ItemsSource = sortedList.Values;
+            listBox.ItemsSource = stack;
         }
 
         private void listBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
